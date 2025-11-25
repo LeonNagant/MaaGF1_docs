@@ -2,7 +2,8 @@
 
 # ========================================================
 # Script Name: gen_ref.sh
-# Function: Scan all .md files in current directory and generate ref.md index by directory structure
+# Function: Scan all .md files in current directory and generate ref.md index.
+#           excludes README.md and the output file itself.
 # ========================================================
 
 # Define output filename
@@ -14,62 +15,90 @@ echo "> Auto-generated at $(date "+%Y-%m-%d %H:%M:%S")" >> "$OUTPUT_FILE"
 echo "" >> "$OUTPUT_FILE"
 
 # Define an array to store previous loop's directory path parts
-# Used to compare if path has changed
 declare -a prev_parts=()
 
-# 1. Find all .md files in current directory
-# 2. Exclude output file itself (ref.md) to prevent infinite loop or self-reference
-# 3. Sort to ensure files in same directory are grouped together
-find . -type f -name "*.md" ! -name "$OUTPUT_FILE" | sort | while read -r filepath; do
+# Initialize file counter for ordered lists
+file_count=0
+
+# 1. Find all .md files
+# 2. Exclude output file (ref.md) and README.md
+# 3. Use LC_ALL=C sort to force ASCII sorting. 
+#    This ensures uppercase filenames (e.g., FAQ.md) appear before lowercase subdirectories (e.g., experience).
+find . -type f -name "*.md" ! -name "$OUTPUT_FILE" ! -name "README.md" | LC_ALL=C sort | while read -r filepath; do
     
-    # Get file's directory path (e.g.: ./doc/tutorial/base)
+    # Get directory path and filename
     dir_path=$(dirname "$filepath")
-    # Get filename (e.g.: 01_luffberry_chess.md)
     filename=$(basename "$filepath")
     
-    # Remove leading "./" from path for processing (becomes doc/tutorial/base)
-    # If file is in root directory, clean_dir_path is empty
+    # Clean path (remove leading ./)
+    # If file is in root, clean_dir_path becomes empty
     if [ "$dir_path" == "." ]; then
         clean_dir_path=""
     else
         clean_dir_path="${dir_path#./}"
     fi
 
-    # Split path by '/' into array
-    # IFS='/' defines the delimiter
+    # Split path by '/' into an array
     IFS='/' read -r -a curr_parts <<< "$clean_dir_path"
 
-    # Flag to mark if path change is detected
-    path_changed=false
+    # === Logic: Detect Path Changes ===
 
-    # Iterate through each level of current path
-    for ((i=0; i<${#curr_parts[@]}; i++)); do
-        curr_part="${curr_parts[$i]}"
-        prev_part="${prev_parts[$i]}"
-
-        # If current level differs from previous, or if higher levels have already changed
-        if [[ "$path_changed" == true ]] || [[ "$curr_part" != "$prev_part" ]]; then
-            path_changed=true
-            
-            # Calculate heading level.
-            # Array index starts from 0, doc is level 0.
-            # We can make doc correspond to level-1 heading #, or level-2 ##.
-            # Here we set: level 0 (doc) = #, level 1 = ##, and so on.
-            level=$((i + 1))
-            
-            # Generate corresponding number of '#'
-            hashes=$(printf "%0.s#" $(seq 1 $level))
-            
-            # Write heading to file
-            echo -e "\n$hashes $curr_part\n" >> "$OUTPUT_FILE"
+    # Calculate the length of the common prefix between current and previous path
+    common_len=0
+    for ((i=0; i<${#curr_parts[@]} && i<${#prev_parts[@]}; i++)); do
+        if [[ "${curr_parts[$i]}" == "${prev_parts[$i]}" ]]; then
+            ((common_len++))
+        else
+            break
         fi
     done
 
-    # Write file link
-    # Format: - [filename](relative_path)
-    echo "- [$filename]($filepath)" >> "$OUTPUT_FILE"
+    # Flag to determine if we need to reset the file counter
+    reset_counter=false
 
-    # Update prev_parts to current path for next loop comparison
+    # Case A: Entering a new subdirectory or switching branches
+    # (e.g., moving from doc/ to doc/tutorial)
+    if [[ $common_len -lt ${#curr_parts[@]} ]]; then
+        reset_counter=true
+        
+        # Print headers for the new path levels
+        for ((i=common_len; i<${#curr_parts[@]}; i++)); do
+            title="${curr_parts[$i]}"
+            # Calculate heading level (doc=1, tutorial=2, etc.)
+            level=$((i + 1))
+            hashes=$(printf "%0.s#" $(seq 1 $level))
+            echo -e "\n$hashes $title\n" >> "$OUTPUT_FILE"
+        done
+
+    # Case B: Returning to a parent directory
+    # (e.g., moving from doc/tutorial/experience back to doc/tutorial)
+    elif [[ $common_len -eq ${#curr_parts[@]} ]] && [[ ${#curr_parts[@]} -lt ${#prev_parts[@]} ]]; then
+        reset_counter=true
+        
+        # Reprint the header of the current directory to visually separate it 
+        # from the previous subdirectory's content.
+        last_idx=$((${#curr_parts[@]} - 1))
+        if [ $last_idx -ge 0 ]; then
+            title="${curr_parts[$last_idx]}"
+            level=$(($last_idx + 1))
+            hashes=$(printf "%0.s#" $(seq 1 $level))
+            echo -e "\n$hashes $title\n" >> "$OUTPUT_FILE"
+        fi
+    fi
+
+    # Reset counter if directory changed
+    if [ "$reset_counter" = true ]; then
+        file_count=0
+    fi
+
+    # Increment counter for the current file
+    ((file_count++))
+
+    # Write file link with explicit numbering
+    # Format: 1. [filename](relative_path)
+    echo "$file_count. [$filename]($filepath)" >> "$OUTPUT_FILE"
+
+    # Update prev_parts for the next iteration
     prev_parts=("${curr_parts[@]}")
 
 done
