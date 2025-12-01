@@ -1,31 +1,50 @@
 # MaaGF1 doc
 
-## tutorial
+# advanced
 
-1. [FAQ](./doc/tutorial/FAQ.md)
+1. [01_virtual_monitor.md](./advanced/01_virtual_monitor.md)
 
-### base
+# tutorial
 
-1. [兵棋挂机](./doc/tutorial/base/01_luffberry_chess.md)
+1. [FAQ.md](./tutorial/FAQ.md)
 
-### experience
+## base
 
-1. [8-1n](./doc/tutorial/experience/01_8-1n.md)
-2. [13-4](./doc/tutorial/experience/02_13-4.md)
-3. [跑步机](./doc/tutorial/experience/03_shattered_connexion.md)
 
-### rescue
+### chess
 
-1. [人形救援](./doc/tutorial/rescue/01_doll.md)
-2. [装备打捞](./doc/tutorial/rescue/02_equipment.md)
+1. [luffberry_chess.md](./tutorial/base/chess/luffberry_chess.md)
 
-### resource
+## experience
 
-1. [自动灰域](./doc/tutorial/resource/01_gray_zone.md)
-2. [指挥官后勤](./doc/tutorial/resource/02_skk_logistics.md)
-3. [捡垃圾](./doc/tutorial/resource/03_shattered_connexion.md)
-4. [炼金](./doc/tutorial/resource/04_alchemy.md)
 
-## advanced
+### 13-4
 
-1. [虚拟显示器](./doc/advanced/01_virtual_monitor.md)
+1. [13-4.md](./tutorial/experience/13-4/13-4.md)
+
+### 8-1N
+
+1. [8-1n.md](./tutorial/experience/8-1N/8-1n.md)
+
+### shattered_connexion
+
+1. [shattered_connexion.md](./tutorial/experience/shattered_connexion/shattered_connexion.md)
+
+## rescue
+
+
+### dool
+
+1. [doll.md](./tutorial/rescue/dool/doll.md)
+
+### equipment
+
+1. [equipment.md](./tutorial/rescue/equipment/equipment.md)
+
+## resource
+
+1. [01_gray_zone.md](./tutorial/resource/01_gray_zone.md)
+2. [02_skk_logistics.md](./tutorial/resource/02_skk_logistics.md)
+3. [03_shattered_connexion.md](./tutorial/resource/03_shattered_connexion.md)
+4. [04_alchemy.md](./tutorial/resource/04_alchemy.md)
+5. [05_blm.md](./tutorial/resource/05_blm.md)

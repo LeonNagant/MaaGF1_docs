@@ -33,7 +33,7 @@
 2. 将地图**缩放到最小**，并从右上角往左下角滑动，直至地图右上角的边缘（已集成自动初始化）
 
 <p align="center">
-      <img alt="地图示例" src="https://cdn.jsdelivr.net/gh/LeonNagant/MaaGF1_Test/example_img/doll_rescure/MP41Rescure.png" width="700">
+      <img alt="地图示例" src="pic/MP41Rescure.png" width="700">
       <br><em>正确的地图初始视角，地图布局请尽量和这张图一致！</em>
     </p>
 
@@ -56,7 +56,7 @@
 即可开启脚本使用
 
 <p align="center">
-          <img alt="地图示例" src="https://cdn.jsdelivr.net/gh/LeonNagant/MaaGF1_Test/example_img/doll_rescure/DefenderRescure.png" width="400">
+          <img alt="地图示例" src="pic/DefenderRescure.png" width="400">
           <br><em>正确的地图初始视角，地图布局请尽量和这张图一致！</em>
         </p>
   
@@ -73,7 +73,7 @@
 部署打捞队即可开启脚本使用
 
 <p align="center">
-          <img alt="地图示例" src="https://cdn.jsdelivr.net/gh/LeonNagant/MaaGF1_Test/example_img/doll_rescure/M240LRescure.png" width="400">
+          <img alt="地图示例" src="pic/M240LRescure.png" width="400">
           <br><em>正确的地图初始视角，地图布局请尽量和这张图一致！</em>
         </p>
 
@@ -84,7 +84,7 @@
 将地图缩放至最小，并 ***往左*** 拖拽至无法移动 且 效能435怪组所在机场与下边界相切
 <mark>往左！往左！往左!</mark>
 <p align="center">
-          <img alt="地图示例" src="https://raw.githubusercontent.com/isla23/MaaGF1_Test/refs/heads/main/example_img/doll_rescure/1-6Rescue.png" width="700">
+          <img alt="地图示例" src="pic/1-6Rescue.png" width="700">
           <br><em>正确的地图初始视角，地图布局请尽量和这张图一致！</em>
         </p>
 
@@ -119,7 +119,7 @@
 即可开启脚本食用
 
 <p align="center">
-          <img alt="地图示例" src="https://github.com/LIUBEI1233/MaaGF1_Test/blob/main/example_img/doll_rescure/4-4eRescue.jpg?raw=true" width="700">
+          <img alt="地图示例" src="pic/4-4eRescue.jpg?raw=true" width="700">
           <br><em>正确的地图初始视角，地图布局请尽量和这张图一致！</em>
         </p>
 
@@ -128,7 +128,7 @@
 操作同4-6/4-4e圣捞
 
 <p align="center">
-          <img alt="地图示例" src="https://github.com/LIUBEI1233/MaaGF1_Test/blob/main/example_img/doll_rescure/5-4eRescue.png?raw=true" width="700">
+          <img alt="地图示例" src="pic/5-4eRescue.png?raw=true" width="700">
           <br><em>正确的地图初始视角，地图布局请尽量和这张图一致！</em>
         </p>
 
@@ -151,12 +151,12 @@
 即可开启脚本食用
 
 <p align="center">
-          <img alt="地图示例" src="https://cdn.jsdelivr.net/gh/LeonNagant/MaaGF1_Test/example_img/doll_rescure/6-4eRescue_1.png" width="700">
+          <img alt="地图示例" src="pic/6-4eRescue_1.png" width="700">
           <br><em>正确的地图初始视角，地图布局请尽量和这张图一致！</em>
         </p>
 
 <p align="center">
-          <img alt="梯队示例" src="https://github.com/LIUBEI1233/MaaGF1_Test/blob/main/example_img/doll_rescure/6-4eRescue_2.png?raw=true" width="700">
+          <img alt="梯队示例" src="pic/6-4eRescue_2.png?raw=true" width="700">
           <br><em>可供参考的配队示例</em>
         </p>
 
@@ -179,17 +179,17 @@
 地图须缩放至最小，从左上往右下拖拽至无法拖动
 
 <p align="center">
-          <img alt="地图示例" src="https://github.com/LIUBEI1233/MaaGF1_Test/blob/main/example_img/doll_rescure/MeadowsEndRescue_1.jpg?raw=true" width="700">
+          <img alt="地图示例" src="pic/MeadowsEndRescue_1.jpg?raw=true" width="700">
           <br><em>正确的启动初始视角，布局请尽量与这张图一致！</em>
         </p>
 
 <p align="center">
-          <img alt="地图示例" src="https://github.com/LIUBEI1233/MaaGF1_Test/blob/main/example_img/doll_rescure/MeadowsEndRescue_2.jpg?raw=true" width="700">
+          <img alt="地图示例" src="pic/MeadowsEndRescue_2.jpg?raw=true" width="700">
           <br><em>正确的地图初始视角，地图布局请尽量和这张图一致！</em>
         </p>
 
 <p align="center">
-          <img alt="梯队示例" src="https://github.com/LIUBEI1233/MaaGF1_Test/blob/main/example_img/doll_rescure/MeadowsEndRescue_3.png?raw=true" width="400">
+          <img alt="梯队示例" src="pic/MeadowsEndRescue_3.png?raw=true" width="400">
           <br><em>可供参考的配队及阵型</em>
         </p>
 
@@ -200,17 +200,17 @@
 打捞队需要携带妖精
 
 <p align="center">
-          <img alt="地图示例" src="https://github.com/LIUBEI1233/MaaGF1_Test/blob/main/example_img/doll_rescure/AK-5Rescue_1.jpg?raw=true" width="700">
+          <img alt="地图示例" src="pic/AK-5Rescue_1.jpg?raw=true" width="700">
           <br><em>正确的启动初始视角，布局请尽量与这张图一致！</em>
         </p>
 
 <p align="center">
-          <img alt="地图示例" src="https://github.com/LIUBEI1233/MaaGF1_Test/blob/main/example_img/doll_rescure/AK-5Rescue_2.jpg?raw=true" width="700">
+          <img alt="地图示例" src="pic/AK-5Rescue_2.jpg?raw=true" width="700">
           <br><em>正确的地图初始视角，地图布局请尽量和这张图一致！</em>
         </p>
 
 <p align="center">
-          <img alt="梯队示例" src="https://github.com/LIUBEI1233/MaaGF1_Test/blob/main/example_img/doll_rescure/AK-5Rescue_3.jpg?raw=true" width="400">
+          <img alt="梯队示例" src="pic/AK-5Rescue_3.jpg?raw=true" width="400">
           <br><em>可供参考的配队及阵型</em>
         </p>
 
@@ -231,7 +231,7 @@
    - 任意狗粮
 
 <p align="center">
-          <img alt="地图示例" src="https://github.com/LIUBEI1233/MaaGF1_Test/blob/main/example_img/doll_rescure/ReignofChaosRescue.png?raw=true" width="700">
+          <img alt="地图示例" src="pic/ReignofChaosRescue.png?raw=true" width="700">
           <br><em>正确的启动初始视角，布局请尽量与这张图一致！</em>
 
 ## ~~静风点-三维流形抽薪打捞(已于2025.8.29惨遭扫码ym修复，此案作废)~~
