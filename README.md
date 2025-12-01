@@ -1,50 +1,31 @@
 # MaaGF1 doc
 
-# advanced
+## 一、入门
 
-1. [01_virtual_monitor.md](./advanced/01_virtual_monitor.md)
-
-# tutorial
+### 1.1 杂项
 
 1. [FAQ.md](./tutorial/FAQ.md)
+2. [兵棋挂机](./tutorial/base/chess/luffberry_chess.md)
 
-## base
+### 1.2 经验
 
+1. [13-4](./tutorial/experience/13-4/13-4.md)
+2. [8-1n](./tutorial/experience/8-1N/8-1n.md)
+3. [跑步机](./tutorial/experience/shattered_connexion/shattered_connexion.md)
 
-### chess
+### 1.3 救援
 
-1. [luffberry_chess.md](./tutorial/base/chess/luffberry_chess.md)
+1. [人形救援](./tutorial/rescue/dool/doll.md)
+2. [装备打捞](./tutorial/rescue/equipment/equipment.md)
 
-## experience
+### 1.4 四项
 
+1. [灰域](./tutorial/resource/01_gray_zone.md)
+2. [指挥官后勤](./tutorial/resource/02_skk_logistics.md)
+3. [捡垃圾](./tutorial/resource/03_shattered_connexion.md)
+4. [炼金](./tutorial/resource/04_alchemy.md)
+5. [零元购](./tutorial/resource/05_blm.md)
 
-### 13-4
+## 二、进阶
 
-1. [13-4.md](./tutorial/experience/13-4/13-4.md)
-
-### 8-1N
-
-1. [8-1n.md](./tutorial/experience/8-1N/8-1n.md)
-
-### shattered_connexion
-
-1. [shattered_connexion.md](./tutorial/experience/shattered_connexion/shattered_connexion.md)
-
-## rescue
-
-
-### dool
-
-1. [doll.md](./tutorial/rescue/dool/doll.md)
-
-### equipment
-
-1. [equipment.md](./tutorial/rescue/equipment/equipment.md)
-
-## resource
-
-1. [01_gray_zone.md](./tutorial/resource/01_gray_zone.md)
-2. [02_skk_logistics.md](./tutorial/resource/02_skk_logistics.md)
-3. [03_shattered_connexion.md](./tutorial/resource/03_shattered_connexion.md)
-4. [04_alchemy.md](./tutorial/resource/04_alchemy.md)
-5. [05_blm.md](./tutorial/resource/05_blm.md)
+1. [虚拟显示器](./advanced/01_virtual_monitor.md)
