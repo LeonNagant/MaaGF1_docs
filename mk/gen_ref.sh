@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # ========================================================
-# Script Name: gen_ref.sh
+# Script Name: mk/gen_ref.sh
 # Function: Scan all .md files in current directory and generate ref.md index.
-#           excludes README.md and the output file itself.
+#           excludes README.md, the output file itself, and the mk directory.
+# Usage: Run from the project root: bash mk/gen_ref.sh
 # ========================================================
 
 # Define output filename
@@ -22,16 +23,20 @@ file_count=0
 
 # 1. Find all .md files
 # 2. Exclude output file (ref.md) and README.md
-# 3. Use LC_ALL=C sort to force ASCII sorting. 
-#    This ensures uppercase filenames (e.g., FAQ.md) appear before lowercase subdirectories (e.g., experience).
-find . -type f -name "*.md" ! -name "$OUTPUT_FILE" ! -name "README.md" | LC_ALL=C sort | while read -r filepath; do
+# 3. Exclude the 'mk' directory and '.git' directory
+# 4. Use LC_ALL=C sort to force ASCII sorting.
+find . -type f -name "*.md" \
+    ! -name "$OUTPUT_FILE" \
+    ! -name "README.md" \
+    ! -path "./mk/*" \
+    ! -path "./.git/*" \
+    | LC_ALL=C sort | while read -r filepath; do
     
     # Get directory path and filename
     dir_path=$(dirname "$filepath")
     filename=$(basename "$filepath")
     
     # Clean path (remove leading ./)
-    # If file is in root, clean_dir_path becomes empty
     if [ "$dir_path" == "." ]; then
         clean_dir_path=""
     else
@@ -53,30 +58,21 @@ find . -type f -name "*.md" ! -name "$OUTPUT_FILE" ! -name "README.md" | LC_ALL=
         fi
     done
 
-    # Flag to determine if we need to reset the file counter
     reset_counter=false
 
-    # Case A: Entering a new subdirectory or switching branches
-    # (e.g., moving from doc/ to doc/tutorial)
+    # Case A: Entering a new subdirectory
     if [[ $common_len -lt ${#curr_parts[@]} ]]; then
         reset_counter=true
-        
-        # Print headers for the new path levels
         for ((i=common_len; i<${#curr_parts[@]}; i++)); do
             title="${curr_parts[$i]}"
-            # Calculate heading level (doc=1, tutorial=2, etc.)
             level=$((i + 1))
             hashes=$(printf "%0.s#" $(seq 1 $level))
             echo -e "\n$hashes $title\n" >> "$OUTPUT_FILE"
         done
 
     # Case B: Returning to a parent directory
-    # (e.g., moving from doc/tutorial/experience back to doc/tutorial)
     elif [[ $common_len -eq ${#curr_parts[@]} ]] && [[ ${#curr_parts[@]} -lt ${#prev_parts[@]} ]]; then
         reset_counter=true
-        
-        # Reprint the header of the current directory to visually separate it 
-        # from the previous subdirectory's content.
         last_idx=$((${#curr_parts[@]} - 1))
         if [ $last_idx -ge 0 ]; then
             title="${curr_parts[$last_idx]}"
@@ -86,19 +82,15 @@ find . -type f -name "*.md" ! -name "$OUTPUT_FILE" ! -name "README.md" | LC_ALL=
         fi
     fi
 
-    # Reset counter if directory changed
     if [ "$reset_counter" = true ]; then
         file_count=0
     fi
 
-    # Increment counter for the current file
     ((file_count++))
 
-    # Write file link with explicit numbering
-    # Format: 1. [filename](relative_path)
+    # Write file link
     echo "$file_count. [$filename]($filepath)" >> "$OUTPUT_FILE"
 
-    # Update prev_parts for the next iteration
     prev_parts=("${curr_parts[@]}")
 
 done
