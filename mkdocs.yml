@@ -27,7 +27,7 @@ theme:
 
 # 目录结构
 nav:
-  - 首页: README.md
+  - 首页: index.md
   - 常见问题: tutorial/FAQ.md
   - 基础教程:
     - 模拟器设置: advanced/01_virtual_monitor.md
