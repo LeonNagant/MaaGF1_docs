@@ -48,15 +48,13 @@ extra:
 nav:
   - 首页: index.md
   - 常见问题: tutorial/FAQ.md
-  - 基础教程:
-    - 模拟器设置: advanced/01_virtual_monitor.md
-    - 飞行棋: tutorial/base/chess/luffberry_chess.md
   - 资源获取:
+    - 飞行棋: tutorial/base/chess/luffberry_chess.md
     - 灰域探查: tutorial/resource/01_gray_zone.md
-    - 后勤拖尸: tutorial/resource/02_skk_logistics.md
-    - 裂变链接: tutorial/resource/03_shattered_connexion.md
+    - 指挥官后勤: tutorial/resource/02_skk_logistics.md
+    - 捡垃圾: tutorial/resource/03_shattered_connexion.md
     - 炼金: tutorial/resource/04_alchemy.md
-    - 基础资源: tutorial/resource/05_blm.md
+    - 零元购: tutorial/resource/05_blm.md
   - 练级指南:
     - 13-4: tutorial/experience/13-4/13-4.md
     - 8-1N: tutorial/experience/8-1N/8-1n.md
@@ -64,6 +62,8 @@ nav:
   - 救援打捞:
     - 人形救援: tutorial/rescue/dool/doll.md
     - 装备打捞: tutorial/rescue/equipment/equipment.md
+  - 进阶指南:
+    - 虚拟显示器: advanced/01_virtual_monitor.md
 
 markdown_extensions:
   - admonition
