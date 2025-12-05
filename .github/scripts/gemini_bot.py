@@ -210,7 +210,7 @@ def main():
     # --- 丹德莱风格的进度条模板 ---
     def get_status_msg(status_text, detail_text=""):
         return f"""
-💠 **Dandelion Protocol Activated**
+💠 **OGAS Protocol Activated**
 
 > {user_request}
 
@@ -325,8 +325,8 @@ def main():
             gh_client.update_comment(get_status_msg("Writing data...", "正在覆写本地文件..."))
 
             # Git 操作
-            run_git_cmd('git config --global user.name "Dandelion"')
-            run_git_cmd('git config --global user.email "xjt.include@gmail.com"')
+            run_git_cmd('git config --global user.name "github-actions[bot]"')
+            run_git_cmd('git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"')
 
             branch_name = f"dandelion/patch-{ISSUE_NUMBER}-{int(time.time())}"
             run_git_cmd(f"git checkout -b {branch_name}")
@@ -358,7 +358,7 @@ def main():
             
             # 最终更新评论：带上 PR 链接
             success_msg = f"""
-💠 **Dandelion Protocol**
+💠 **OGAS Protocol**
 
 > {user_request}
 
@@ -382,7 +382,7 @@ def main():
         
         # 错误状态更新
         error_msg = f"""
-💠 **Dandelion Protocol**
+💠 **OGAS Protocol**
 
 > {user_request}
 
