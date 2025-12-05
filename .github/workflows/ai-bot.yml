@@ -1,0 +1,44 @@
+name: Gemini AI Coder
+
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  gemini-code:
+    if: >
+      (github.event_name == 'issue_comment' && (contains(github.event.comment.body, '/gemini') || contains(github.event.comment.body, '/丹德莱'))) ||
+      (github.event_name == 'issues' && (contains(github.event.issue.body, '/gemini') || contains(github.event.issue.body, '/丹德莱')))
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-generativeai PyGithub tenacity colorlog
+
+      - name: Run AI Bot
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_NAME: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RUN_ID: ${{ github.run_id }}
+          PROMPT_CONTENT: ${{ github.event.comment.body || github.event.issue.body }}
+        run: |
+          python .github/scripts/gemini_bot.py
