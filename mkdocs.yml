@@ -49,19 +49,19 @@ nav:
   - 首页: index.md
   - 常见问题: tutorial/FAQ.md
   - 资源获取:
-    - 飞行棋: tutorial/base/chess/luffberry_chess.md
-    - 灰域探查: tutorial/resource/01_gray_zone.md
-    - 指挥官后勤: tutorial/resource/02_skk_logistics.md
-    - 捡垃圾: tutorial/resource/03_shattered_connexion.md
-    - 炼金: tutorial/resource/04_alchemy.md
-    - 零元购: tutorial/resource/05_blm.md
+    - 兵棋挂机: tutorial/base/luffberry_chess.md
+    - 灰域探查: tutorial/resource/gray_zone.md
+    - 指挥官后勤: tutorial/resource/skk_logistics.md
+    - 捡垃圾: tutorial/resource/shattered_connexion.md
+    - 炼金: tutorial/resource/alchemy.md
+    - 零元购: tutorial/resource/blm.md
   - 练级指南:
-    - 13-4: tutorial/experience/13-4/13-4.md
-    - 8-1N: tutorial/experience/8-1N/8-1n.md
-    - 裂变链接练级: tutorial/experience/shattered_connexion/shattered_connexion.md
+    - 13-4: tutorial/experience/13-4.md
+    - 8-1N: tutorial/experience/8-1n.md
+    - 裂变链接练级: tutorial/experience/shattered_connexion.md
   - 救援打捞:
-    - 人形救援: tutorial/rescue/doll/doll.md
-    - 装备打捞: tutorial/rescue/equipment/equipment.md
+    - 人形救援: tutorial/rescue/doll.md
+    - 装备打捞: tutorial/rescue/equipment.md
   - 进阶指南:
     - 虚拟显示器: advanced/01_virtual_monitor.md
 
