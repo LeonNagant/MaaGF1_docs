@@ -34,7 +34,7 @@ TRIGGERS = ["/gemini", "/丹德莱"]
 
 # 模型配置
 # 使用 Flash 模型以获得速度和上下文优势
-MODEL_NAME = "gemini-2.0-flash-exp" 
+MODEL_NAME = "gemini-2.5-flash" 
 
 class Intent(str, Enum):
     CHAT = "chat"
