@@ -47,7 +47,9 @@ extra:
 # 目录结构
 nav:
   - 首页: index.md
-  - 常见问题: tutorial/FAQ.md
+  - 基础知识:
+    - 下载并运行: tutorial/begin/下载并运行.md
+    - 常见问题: tutorial/begin/FAQ.md
   - 资源获取:
     - 兵棋挂机: tutorial/base/兵棋挂机.md
     - 灰域探查: tutorial/resource/自动打灰.md
