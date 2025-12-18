@@ -6,6 +6,11 @@
 
 1. 梯队1和梯队2使用两个铁血梯队；
 2. “确认出击”至如下有剧情对话的位置，如图1所示：
+<p align="center">
+      <img alt="地图示例" src="pic/sandbox_alchemy.png" width="700">
+      <br><em>右上角出现“跳过”时即可运行</em>
+    </p>
+
 
 TODO
 
