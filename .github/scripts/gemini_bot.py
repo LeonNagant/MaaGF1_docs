@@ -181,7 +181,17 @@ class ProjectManager:
         return modified_files
 
 def run_git_cmd(cmd):
-    subprocess.run(cmd, shell=True, check=True)
+    """
+    执行 git 命令。
+    如果 cmd 是字符串，启用 shell=True (不推荐用于含用户输入的命令)。
+    如果 cmd 是列表，禁用 shell=False (安全，推荐)。
+    """
+    if isinstance(cmd, list):
+        # 安全模式：直接调用可执行文件，不经过 Shell 解析
+        subprocess.run(cmd, shell=False, check=True)
+    else:
+        # 兼容模式：简单的固定命令可以使用字符串
+        subprocess.run(cmd, shell=True, check=True)
 
 def main():
     # 0. 初始化检查
@@ -329,7 +339,7 @@ def main():
             run_git_cmd('git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"')
 
             branch_name = f"dandelion/patch-{ISSUE_NUMBER}-{int(time.time())}"
-            run_git_cmd(f"git checkout -b {branch_name}")
+            run_git_cmd(["git", "checkout", "-b", branch_name])
             
             modified_paths = pm.apply_changes(final_response.changes)
             
@@ -337,10 +347,10 @@ def main():
                 sys.exit(0)
 
             for path in modified_paths:
-                run_git_cmd(f'git add "{path}"')
-                
-            run_git_cmd(f'git commit -m "Dandelion: {user_request}"')
-            run_git_cmd(f"git push origin {branch_name}")
+                run_git_cmd(["git", "add", path])
+
+            run_git_cmd(["git", "commit", "-m", f"Dandelion: {user_request}"])
+            run_git_cmd(["git", "push", "origin", branch_name])
             
             # 创建 PR
             pr_body = f"""
