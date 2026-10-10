@@ -1,0 +1,39 @@
+:root, 
+[data-md-color-primary="deep-orange"] {
+    /* 主题色 - 你的目标颜色 */
+    --md-primary-fg-color:        #eaa213;
+    
+    /* 浅色变体 - 用于某些 hover 状态 */
+    --md-primary-fg-color--light: #ffd373; 
+    
+    /* 深色变体 - 用于深色背景下的文字或 hover */
+    --md-primary-fg-color--dark:  #ff953a;
+    
+    /* 强调色 - 链接、按钮等 */
+    --md-accent-fg-color:         #fd6b0d;
+}
+
+[data-md-color-scheme="slate"][data-md-color-primary="deep-orange"] {
+    /* 主题色 - 你的目标颜色 */
+    --md-primary-fg-color:        #eaa213;
+    
+    /* 浅色变体 - 用于某些 hover 状态 */
+    --md-primary-fg-color--light: #ffd373; 
+    
+    /* 深色变体 - 用于深色背景下的文字或 hover */
+    --md-primary-fg-color--dark:  #ff953a;
+    
+    /* 强调色 - 链接、按钮等 */
+    --md-accent-fg-color:         #fd6b0d;
+
+    /* 背景色 */
+    --md-default-bg-color: #36393f; 
+}
+
+.md-header {
+  background-color: var(--md-primary-fg-color) !important;
+}
+
+.md-tabs {
+  background-color: var(--md-primary-fg-color) !important;
+}
